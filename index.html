@@ -47,7 +47,128 @@
             </p>
         </div>
     </section>
-                <div id="map"></div>
+    <!--Map-->
+    <section class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 ">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="section-heading">Easy as 1 2 3</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        Country:
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <select id="country">
+                    <option value="all">All</option>
+                    <option value="au">Australia</option>
+                    <option value="br">Brazil</option>
+                    <option value="ca">Canada</option>
+                    <option value="fr">France</option>
+                    <option value="de">Germany</option>
+                    <option value="mx">Mexico</option>
+                    <option value="nz">New Zealand</option>
+                    <option value="ie" selected>Ireland</option>
+                    <option value="it">Italy</option>
+                    <option value="za">South Africa</option>
+                    <option value="es">Spain</option>
+                    <option value="pt">Portugal</option>
+                    <option value="us">U.S.A.</option>
+                    <option value="uk">United Kingdom</option>
+                  </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="findhotels" class="col-md-12">
+                        Find hotels in:
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="locationField" class="col-md-12">
+                        <input id="autocomplete" class="input-boxes" placeholder="Enter a city" type="text" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="findhotels" class="col-md-12">
+                        Type:
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="">
+                            <input type="radio" name="gender" value="accomodation" id="accomodationRadio"> <span class="radio-buttons">Accomodation</span><br>
+                            <input type="radio" name="gender" value="Restaurants/Bars" id="foodRadio"> <span class="radio-buttons">Restaurants/Bars</span><br>
+                            <input type="radio" name="gender" value="Tourist Attractions" id="touristRadio"> <span class="radio-buttons">Tourist Attractions</span>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button id="reset-button" type="button" class="btn btn-primary" onclick="reset()">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="col-xs-12 col-sm-8 col-md-8">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-heading">Map</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3> Results </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="listing">
+                        <table id="resultsTable">
+                            <tbody id="results"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none">
+                <div id="info-content">
+                    <table>
+                        <tr id="iw-url-row" class="iw_table_row">
+                            <td id="iw-icon" class="iw_table_icon"></td>
+                            <td id="iw-url"></td>
+                        </tr>
+                        <tr id="iw-address-row" class="iw_table_row">
+                            <td class="iw_attribute_name">Address:</td>
+                            <td id="iw-address"></td>
+                        </tr>
+                        <tr id="iw-phone-row" class="iw_table_row">
+                            <td class="iw_attribute_name">Telephone:</td>
+                            <td id="iw-phone"></td>
+                        </tr>
+                        <tr id="iw-rating-row" class="iw_table_row">
+                            <td class="iw_attribute_name">Rating:</td>
+                            <td id="iw-rating"></td>
+                        </tr>
+                        <tr id="iw-website-row" class="iw_table_row">
+                            <td class="iw_attribute_name">Website:</td>
+                            <td id="iw-website"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </section>
     
     <footer>
@@ -55,20 +176,6 @@
         
     </footer>
     
-    <script>
-// Initialize and add the map
-function initMap() {
-  // The location of Uluru
-  var uluru = {lat: -25.344, lng: 131.036};
-  // The map, centered at Uluru
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: uluru});
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
-}
-    </script>
-    
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -76,5 +183,5 @@ function initMap() {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtJNIB175mjZHw_FrTizB_BpBDENhl_BY&libraries=places&callback=initMap" async defer></script>
-</body>
+<script src="assets/js/maps.js"></script></body>
 </html>
