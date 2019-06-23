@@ -1,7 +1,16 @@
+.flex-container {
+  flex-direction: column;
+  display: -webkit-flex; /* Safari */
+  -webkit-justify-content: space-around; /* Safari 6.1+ */
+  display: flex;
+  justify-content: space-around;
+ 
+}
+
 .hero-image  
-{
-  background-image: url("/assets/images/Lahinch-by-Mike-O'Leary-Greengraf Photography--4.jpg");
-  background-color: green;
+{ padding-top:100px;
+  background-image: url("../images/Milestone-Project2-by-Greengraf-photography.png");
+  background-color: rgba(0, 128, 0, 0.4);;
   height: 500px;
   background-position: center;
   background-repeat: no-repeat;
@@ -9,11 +18,90 @@
   position: relative;
 }
 
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+table {
+  font-size: 12px;
+}
 #map {
-   width: 100%;
-   height: 400px;
-   background-color: grey;
- }
+  width: 100%;
+  height: 450px;
+}
+#listing {
+  position: relative;
+  width: 200px;
+  height: 470px;
+  overflow: auto;
+  top: 0px;
+  cursor: pointer;
+  overflow-x: hidden;
+}
+#findhotels {
+  position: relative;
+  text-align: right;
+  width: 100px;
+  font-size: 14px;
+  padding: 4px;
+  z-index: 5;
+
+}
+#locationField {
+  margin-bottom: 1rem;
+  position: relative;
+  width: 190px;
+  height: 25px;
+  
+  top: 0px;
+  z-index: 5;
+  
+}
+#controls {
+  position: relative;
+ 
+  width: 140px;
+  top: 0px;
+  z-index: 5;
+  background-color: #fff;
+}
+#autocomplete {
+ 
+  border-radius: 5px;
+  width: 100%;
+}
+#country {
+  width: 100%;
+}
+.placeIcon {
+  width: 20px;
+  height: 34px;
+  margin: 4px;
+}
+.hotelIcon {
+  width: 24px;
+  height: 24px;
+}
+#resultsTable {
+  border-collapse: collapse;
+  width: 240px;
+}
+#rating {
+  font-size: 13px;
+  font-family: Arial Unicode MS;
+}
+.iw_table_row {
+  height: 18px;
+}
+.iw_attribute_name {
+  font-weight: bold;
+  text-align: right;
+}
+.iw_table_icon {
+  text-align: right;
+}
 
 footer{
     height: 100px;
