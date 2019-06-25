@@ -16,6 +16,7 @@ var countries = {
 };
 
 function initMap() {
+  document.getElementById("seeRadio").checked = true;
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: countries['ie'].zoom,
     center: countries['ie'].center,
@@ -236,6 +237,15 @@ function searchSee() {
   });
 }
 
+// Reset button
+
+function resetbtn() {
+  clearMarkers();
+  clearResults();
+  initMap();
+}
+
+// Empties markers array
 function clearMarkers() {
   for (var i = 0; i < markers.length; i++) {
     if (markers[i]) {
