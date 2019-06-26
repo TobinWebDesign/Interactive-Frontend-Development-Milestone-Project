@@ -10,7 +10,7 @@
 .hero-image  
 { padding-top:100px;
   background-image: url("../images/Milestone-Project2-by-Greengraf-photography.png");
-  background-color: rgba(0, 128, 0, 0.4);;
+  background-color: rgba(0, 128, 0, 0.4);
   height: 500px;
   background-position: center;
   background-repeat: no-repeat;
@@ -26,19 +26,169 @@ html, body {
 }
 table {
   font-size: 12px;
+  
 }
+
+/*-----------------------------------------------NAVBAR*/
+
+.sidenav {
+  height: 100%;
+  /*width: 250px;*/
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 128, 0, 0.4);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.navbtn {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+#locationField {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav p {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.closebtn {
+  z-index: 2;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  z-index: 2;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/*-----------------------------------------------NAVBAR ICON*/
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+/*-----------------------------------------------STICKY*/
+
+/*.sticky {*/
+/*  position: -webkit-sticky;*/
+/*  position: sticky;*/
+/*  top: 0;*/
+/*  padding-top: 20px;*/
+/*  background-color: rgba(0, 128, 0, 0.4);*/
+/*  z-index: 1;*/
+/*}*/
+
+
+ /*-----------------------------------------------FONT*/
+ 
+ .cover-heading {
+   color: white;
+   
+ }
+ 
+ .subheading {
+   color: white;
+   
+ }
+ 
+ .paragraph{
+   color: white;
+ }
+
+ /*-----------------------------------------------MAP SECTION*/
 #map {
   width: 100%;
   height: 450px;
 }
+
+#right-panel {
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+  font-size: 15px;
+}
+
+#right-panel select {
+  width: 100%;
+}
+
+#right-panel i {
+  font-size: 12px;
+}
+#right-panel {
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  right: 5px;
+  top: 60%;
+  margin-top: -195px;
+  height: 330px;
+  width: 200px;
+  padding: 5px;
+  z-index: 5;
+  border: 1px solid #999;
+  background: #fff;
+}
 #listing {
   position: relative;
-  width: 200px;
-  height: 470px;
-  overflow: auto;
-  top: 0px;
-  cursor: pointer;
-  overflow-x: hidden;
+    height: 320px;
+    overflow: auto;
+    top: 0px;
+    cursor: pointer;
+    overflow-x: hidden;
 }
 #findhotels {
   position: relative;
@@ -103,6 +253,8 @@ table {
   text-align: right;
 }
 
+
+/*-----------------------------------------------FOOTER*/
 footer{
     height: 100px;
 }

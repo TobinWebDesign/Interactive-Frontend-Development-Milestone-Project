@@ -378,3 +378,18 @@ function buildIWContent(place) {
     document.getElementById('iw-website-row').style.display = 'none';
   }
 }
+
+
+// NAV OPEN
+
+function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        
+ function myFunction(x) {
+            x.classList.toggle("change");
+        }
