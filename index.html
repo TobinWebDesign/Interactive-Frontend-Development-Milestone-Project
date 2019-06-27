@@ -15,30 +15,38 @@
 </head>
 
 <body>
-    <header class="container flex-container">
-        <div id="mySidenav" class="col-md-4 sidenav">
+    <header id="mySidenav" class="col-md-4 sidenav">
+        <div class="sidenav-wrap">
 
-            <div>
-                <p class="paragraph">Choose a Town or City in Ireland</p>
-                <div id="locationField">
-                    <input id="autocomplete" class="input-boxes" placeholder="Enter an Irish Town" type="text" />
-                </div>
-                <!--Search Engine-->
-                <p class="paragraph">What are you looking for?</p>
-                <div class="col-md-12">
-                    <form action="">
-                        <div class="col-md-12"><input type="radio" name="gender" value="accomodation" id="sleepRadio"> <span class="radio-buttons">SLEEP</span></div>
-                        <div class="col-md-12"><input type="radio" name="gender" value="Restaurants/Bars" id="eatRadio"> <span class="radio-buttons">EAT</span></div>
-                        <div class="col-md-12"><input type="radio" name="gender" value="Restaurants/Bars" id="drinkRadio"> <span class="radio-buttons">DRINK</span></div>
-                        <div class="col-md-12"><input type="radio" name="gender" value="Tourist Attractions" id="seeRadio"> <span class="radio-buttons">SEE</span></div>
-                    </form>
+            <p>Choose a Town or City in Ireland</p>
+            <!--Search Engine-->
+            <div id="locationField">
+                <input id="autocomplete" class="input-boxes" placeholder="Enter an Irish Town" type="text" />
+            </div>
+            <!--Radio Buttons-->
+            <div class="sidenav-radio">
+                <p>What are you looking for?</p>
+                <div class="col-md-12 side-items">
+                    <div>
+                        <input type="radio" name="gender" value="accomodation" id="sleepRadio"> <span class="radio-buttons">SLEEP</span>
+                    </div>
+                    <div>
+                        <input type="radio" name="gender" value="Restaurants/Bars" id="eatRadio"> <span class="radio-buttons">EAT</span>
+                    </div>
+                    <div>
+                        <input type="radio" name="gender" value="Restaurants/Bars" id="drinkRadio"> <span class="radio-buttons">DRINK</span>
+                    </div>
+                    <div>
+                        <input type="radio" name="gender" value="Tourist Attractions" id="seeRadio"> <span class="radio-buttons">SEE</span>
+                    </div>
                 </div>
                 <div class="navbtn">
                     <button id="reset" type="button" class="btn btn-lg btn-secondary" onclick="resetbtn()">Search Again</button>
                 </div>
+
+                <a href="#">Map</a>
+                <a href="#">Contact</a>
             </div>
-            <a href="#">Map</a>
-            <a href="#">Contact</a>
         </div>
     </header>
 
@@ -51,7 +59,7 @@
             <div class="col-md-8">
                 <div class="hero-image">
                     <h1 class="cover-heading">Love Lahinch</h1>
-                    <p class="subheading">Search places to stay andthings to do on in Lahinch and the Wild Atlantic Way.</p>
+                    <p class="subheading">Search places to stay and things to do in Lahinch and the Wild Atlantic Way.</p>
                 </div>
             </div>
         </div>
@@ -61,8 +69,8 @@
         <!-- Maps Section-->
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="col-sm-8">
-                <div></div>
+            <div class="col-md-8">
+                
                 <h2 class="h1-responsive font-weight-bold text-center my-4">Map</h2>
                 <div id="map">
 
@@ -186,11 +194,11 @@
                     <div class="col-md-3 text-center">
                         <ul class="list-unstyled mb-0">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <p>Lahinch, Co. Clare, Ireland</p>
+                            <p>Lahinch, Co. Clare, Ireland</p>
                             </li>
 
                             <li><i class="fa fa-whatsapp" aria-hidden="true"></i>
-                                <p><a href="https://wa.me/353872345678?text=I%20want%20to%20visit%20the%20Wild%20Atlantic%20AtlanticWay" target=”_blank”>+ 353 234 567 89</a></p>
+                                <p><a href="https://wa.me/353872345678?text=I%20want%20to%20visit%20the%20Wild%20Atlantic%20AtlanticWay">+ 353 234 567 89</a></p>
                             </li>
 
                             <li><i class="fa fa-envelope" aria-hidden="true"></i>

@@ -1,14 +1,16 @@
 .flex-container {
   flex-direction: column;
-  display: -webkit-flex; /* Safari */
-  -webkit-justify-content: space-around; /* Safari 6.1+ */
+  display: -webkit-flex;
+  /* Safari */
+  -webkit-justify-content: space-around;
+  /* Safari 6.1+ */
   display: flex;
   justify-content: space-around;
- 
+
 }
 
-.hero-image  
-{ padding-top:100px;
+.hero-image {
+  padding: 15px;
   background-image: url("../images/Milestone-Project2-by-Greengraf-photography.png");
   background-color: rgba(0, 128, 0, 0.4);
   height: 500px;
@@ -19,21 +21,22 @@
 }
 
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
+
 table {
   font-size: 12px;
-  
+
 }
 
 /*-----------------------------------------------NAVBAR*/
 
 .sidenav {
   height: 100%;
-  /*width: 250px;*/
   position: fixed;
   z-index: 1;
   top: 0;
@@ -47,7 +50,8 @@ table {
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 18px;
+  text-transform: uppercase;
   color: white;
   display: block;
   transition: 0.3s;
@@ -56,7 +60,7 @@ table {
 .navbtn {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 18px;
   color: white;
   display: block;
   transition: 0.3s;
@@ -65,7 +69,7 @@ table {
 #locationField {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 18px;
   color: white;
   display: block;
   transition: 0.3s;
@@ -73,8 +77,9 @@ table {
 
 .sidenav p {
   padding: 8px 8px 8px 32px;
+  text-transform: uppercase;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 18px;
   color: white;
   display: block;
   transition: 0.3s;
@@ -87,6 +92,7 @@ table {
 .closebtn {
   z-index: 2;
 }
+
 .sidenav .closebtn {
   position: absolute;
   top: 0;
@@ -96,12 +102,111 @@ table {
   z-index: 2;
 }
 
-.bar1, .bar2, .bar3 {
+.bar1,
+.bar2,
+.bar3 {
   width: 35px;
   height: 5px;
   background-color: #333;
   margin: 6px 0;
   transition: 0.4s;
+}
+
+.sidenav-wrap {
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.sidenav-radio {
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.side-items {
+  padding-left: 33px;
+  padding-bottom: 20px;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media (max-width: 767px) {
+
+  .sidenav {
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    padding: 20px 30px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .sidenav-radio {
+    display: flex;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .sidenav-wrap {
+    display: flex;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+
+  .side-items {
+    display: flex;
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+  }
+}
+
+.radio-buttons {
+  padding: 15px;
 }
 
 /*-----------------------------------------------NAVBAR ICON*/
@@ -111,54 +216,51 @@ table {
   transform: rotate(-45deg) translate(-9px, 6px);
 }
 
-.change .bar2 {opacity: 0;}
+.change .bar2 {
+  opacity: 0;
+}
 
 .change .bar3 {
   -webkit-transform: rotate(45deg) translate(-8px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
 }
 
-/*-----------------------------------------------STICKY*/
 
-/*.sticky {*/
-/*  position: -webkit-sticky;*/
-/*  position: sticky;*/
-/*  top: 0;*/
-/*  padding-top: 20px;*/
-/*  background-color: rgba(0, 128, 0, 0.4);*/
-/*  z-index: 1;*/
-/*}*/
+/*-----------------------------------------------FONT*/
 
+.cover-heading {
+  text-align: right;
+  color: white;
+  font-size: 120px;
+}
 
- /*-----------------------------------------------FONT*/
- 
- .cover-heading {
-   color: white;
-   
- }
- 
- .subheading {
-   color: white;
-   
- }
- 
- .paragraph{
-   color: white;
- }
+.subheading {
+  text-align: right;
+  font-size: 18px;
+  color: white;
+  text-transform: uppercase;
 
- /*-----------------------------------------------MAP SECTION*/
+}
+
+.paragraph {
+  color: white;
+}
+
+/*-----------------------------------------------MAP SECTION*/
+
 #map {
   width: 100%;
   height: 450px;
 }
 
 #right-panel {
-  font-family: 'Roboto','sans-serif';
+  font-family: 'Roboto', 'sans-serif';
   line-height: 30px;
   padding-left: 10px;
 }
 
-#right-panel select, #right-panel input {
+#right-panel select,
+#right-panel input {
   font-size: 15px;
 }
 
@@ -169,6 +271,7 @@ table {
 #right-panel i {
   font-size: 12px;
 }
+
 #right-panel {
   font-family: Arial, Helvetica, sans-serif;
   position: absolute;
@@ -182,14 +285,16 @@ table {
   border: 1px solid #999;
   background: #fff;
 }
+
 #listing {
   position: relative;
-    height: 320px;
-    overflow: auto;
-    top: 0px;
-    cursor: pointer;
-    overflow-x: hidden;
+  height: 320px;
+  overflow: auto;
+  top: 0px;
+  cursor: pointer;
+  overflow-x: hidden;
 }
+
 #findhotels {
   position: relative;
   text-align: right;
@@ -199,62 +304,75 @@ table {
   z-index: 5;
 
 }
+
 #locationField {
+  width: 90%;
   margin-bottom: 1rem;
   position: relative;
   width: 190px;
   height: 25px;
-  
+
   top: 0px;
   z-index: 5;
-  
+
 }
+
 #controls {
   position: relative;
- 
+
   width: 140px;
   top: 0px;
   z-index: 5;
   background-color: #fff;
 }
+
 #autocomplete {
- 
+
   border-radius: 5px;
   width: 100%;
 }
+
 #country {
   width: 100%;
 }
+
 .placeIcon {
   width: 20px;
   height: 34px;
   margin: 4px;
 }
+
 .hotelIcon {
   width: 24px;
   height: 24px;
 }
+
 #resultsTable {
   border-collapse: collapse;
   width: 240px;
 }
+
 #rating {
   font-size: 13px;
   font-family: Arial Unicode MS;
 }
+
 .iw_table_row {
   height: 18px;
 }
+
 .iw_attribute_name {
   font-weight: bold;
   text-align: right;
 }
+
 .iw_table_icon {
   text-align: right;
 }
 
 
 /*-----------------------------------------------FOOTER*/
-footer{
-    height: 100px;
+
+footer {
+  height: 100px;
 }
