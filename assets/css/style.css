@@ -1,11 +1,17 @@
 body {
   font-family: 'Amatic SC', cursive;
   font-family: 'Oswald', sans-serif;
+  color: #3F6844;
 
 }
 
 .hero {
   margin-top: 50px;
+}
+
+a {
+  color: #3F6844;
+  text-decoration: none;
 }
 
 .flex-container {
@@ -21,7 +27,7 @@ body {
 
 .hero-image {
   padding: 30px;
-  padding-left: 25%;
+  padding-left: 50%;
   background-image: url("../images/Milestone-Project2-by-Greengraf-photography.png");
   background-color: rgba(0, 128, 0, 0.4);
   height: auto;
@@ -31,6 +37,19 @@ body {
   position: relative;
 }
 
+@media (max-width: 1024px) {
+  .hero-image {
+  padding: 30px;
+  padding-left: 25%;
+  background-image: url("../images/Milestone-Project2-by-Greengraf-photography.png");
+  background-color: rgba(0, 128, 0, 0.4);
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+}
 
 html,
 body {
@@ -316,7 +335,7 @@ table {
 }
 
 #right-panel {
-  font-family: 'Roboto', 'sans-serif';
+  font-family: 'Oswald', sans-serif;
   line-height: 30px;
   padding-left: 10px;
 }
@@ -344,7 +363,7 @@ table {
   width: 200px;
   padding: 5px;
   z-index: 5;
-  border: 1px solid #999;
+  border: 1px solid #3F6844;
   background: #fff;
 }
 
