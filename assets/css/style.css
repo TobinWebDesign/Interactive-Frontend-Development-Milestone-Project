@@ -1,7 +1,7 @@
 body {
-font-family: 'Amatic SC', cursive;
-font-family: 'Oswald', sans-serif;
-  
+  font-family: 'Amatic SC', cursive;
+  font-family: 'Oswald', sans-serif;
+
 }
 
 .flex-container {
@@ -43,18 +43,20 @@ table {
 /*-----------------------------------------------NAVBAR*/
 
 .sidenav {
+  color: #FAF1CF;
   height: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   top: 0;
   left: 0;
-  background-color: rgba(0, 128, 0, 0.4);
+  background-color: #5DAA68;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
 }
 
 .sidenav a {
+  color: #FAF1CF;
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 18px;
@@ -71,6 +73,18 @@ table {
   color: white;
   display: block;
   transition: 0.3s;
+}
+
+.searchbtn {
+  background-color: #FAF1CF;
+  color: #3F6844;
+  border: 0px;
+}
+
+.searchbtn:hover {
+  background-color: #3F6844;
+  color: #FAF1CF;
+  border: 0px;
 }
 
 #locationField {
@@ -151,7 +165,23 @@ table {
 }
 
 @media (max-width: 767px) {
+  
+  .hero {
+    margin-top: 200px;
+  }
 
+  
+  #sidenav-heading {
+    display: none;
+  }
+  
+  .sidenav a {
+    display: none;
+  }
+  
+  .navbtn {
+    display: none;
+  }
   .sidenav {
     position: fixed;
     left: 0%;
@@ -237,11 +267,11 @@ table {
 
 .cover-heading {
   font-family: 'Amatic SC', cursive;
-    font-weight: 700;
-    line-height: 1;
-    text-align: right;
-    color: white;
-    font-size: 8em;
+  font-weight: 700;
+  line-height: 1;
+  text-align: right;
+  color: white;
+  font-size: 8em;
 }
 
 .subheading {
