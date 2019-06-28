@@ -4,6 +4,10 @@ body {
 
 }
 
+.hero {
+  margin-top: 50px;
+}
+
 .flex-container {
   flex-direction: column;
   display: -webkit-flex;
@@ -20,7 +24,7 @@ body {
   padding-left: 25%;
   background-image: url("../images/Milestone-Project2-by-Greengraf-photography.png");
   background-color: rgba(0, 128, 0, 0.4);
-  height: 500px;
+  height: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -38,6 +42,12 @@ body {
 table {
   font-size: 12px;
 
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
 }
 
 /*-----------------------------------------------NAVBAR*/
@@ -165,20 +175,20 @@ table {
 }
 
 @media (max-width: 767px) {
-  
+
   .hero {
     margin-top: 200px;
   }
 
-  
+
   #sidenav-heading {
     display: none;
   }
-  
+
   .sidenav a {
     display: none;
   }
-  
+
   .navbtn {
     display: none;
   }
@@ -190,7 +200,7 @@ table {
     bottom: auto;
     width: 100%;
     height: auto;
-    padding: 20px 30px;
+    padding: 5px 30px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
@@ -242,6 +252,28 @@ table {
   }
 }
 
+@media (max-width: 575px) {
+  .sidenav {
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
 .radio-buttons {
   padding: 15px;
 }
@@ -272,6 +304,40 @@ table {
   text-align: right;
   color: white;
   font-size: 8em;
+}
+
+@media (max-width: 667px) {
+  .cover-heading {
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    line-height: 1;
+    text-align: right;
+    color: white;
+    font-size: 5em;
+  }
+
+  .hero-image {
+    padding: 30px;
+    background-image: url(../images/Milestone-Project2-by-Greengraf-photography.png);
+    background-color: rgba(0, 128, 0, 0.4);
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  #right-panel {
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top: 5px;
+    height: auto;
+    width: 100%;
+    padding: 5px;
+    z-index: 5;
+    border: 1px solid #999;
+    background: #fff;
+  }
 }
 
 .subheading {
@@ -351,9 +417,7 @@ table {
   width: 90%;
   margin-bottom: 1rem;
   position: relative;
-  width: 190px;
   height: 25px;
-
   top: 0px;
   z-index: 5;
 
