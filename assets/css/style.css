@@ -497,6 +497,10 @@ footer {
   height: 450px;
   margin-bottom: 200px;
 }
+
+.radio-buttons {
+    padding: 10px;
+}
 }
 
 .subheading {
