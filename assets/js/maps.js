@@ -259,10 +259,10 @@ function clearMarkers() {
 // Also center and zoom the map on the given country.
 function setAutocompleteCountry() {
   var country = document.getElementById('country').value;
-  if (country == 'all') {
+  if (country == 'ie') {
     autocomplete.setComponentRestrictions({ 'country': [] });
-    map.setCenter({ lat: 15, lng: 0 });
-    map.setZoom(2);
+    map.setCenter({ lat: 52.9335, lng: -9.3441 });
+    map.setZoom(10);
   }
   else {
     autocomplete.setComponentRestrictions({ 'country': country });
@@ -380,16 +380,3 @@ function buildIWContent(place) {
 }
 
 
-// NAV OPEN
-
-function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-        }
-        
- function myFunction(x) {
-            x.classList.toggle("change");
-        }

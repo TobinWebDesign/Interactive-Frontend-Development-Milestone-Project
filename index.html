@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <!-- Meta tags -->
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Oswald:200,300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Oswald:200,300,400,500,600,700&display=swap" >
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
     <script type="text/javascript">
@@ -91,35 +91,34 @@
                 </div>
             </div>
         </div>
-    </section>
 
-    <div style="display: none">
-        <div id="info-content">
-            <table>
-                <tr id="iw-url-row" class="iw_table_row">
-                    <td id="iw-icon" class="iw_table_icon"></td>
-                    <td id="iw-url"></td>
-                </tr>
-                <tr id="iw-address-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Address:</td>
-                    <td id="iw-address"></td>
-                </tr>
-                <tr id="iw-phone-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Telephone:</td>
-                    <td id="iw-phone"></td>
-                </tr>
-                <tr id="iw-rating-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Rating:</td>
-                    <td id="iw-rating"></td>
-                </tr>
-                <tr id="iw-website-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Website:</td>
-                    <td id="iw-website"></td>
-                </tr>
-            </table>
+
+        <div style="display: none">
+            <div id="info-content">
+                <table>
+                    <tr id="iw-url-row" class="iw_table_row">
+                        <td id="iw-icon" class="iw_table_icon"></td>
+                        <td id="iw-url"></td>
+                    </tr>
+                    <tr id="iw-address-row" class="iw_table_row">
+                        <td class="iw_attribute_name">Address:</td>
+                        <td id="iw-address"></td>
+                    </tr>
+                    <tr id="iw-phone-row" class="iw_table_row">
+                        <td class="iw_attribute_name">Telephone:</td>
+                        <td id="iw-phone"></td>
+                    </tr>
+                    <tr id="iw-rating-row" class="iw_table_row">
+                        <td class="iw_attribute_name">Rating:</td>
+                        <td id="iw-rating"></td>
+                    </tr>
+                    <tr id="iw-website-row" class="iw_table_row">
+                        <td class="iw_attribute_name">Website:</td>
+                        <td id="iw-website"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
-    </div>
-    </div>
 
     </section>
     <section class="container">
@@ -136,7 +135,7 @@
 
                     <!--Grid column-->
                     <div class="col-md-9 mb-md-0 mb-5">
-                        
+
                         <form id="myform" name="contact-form" onsubmit="return sendMail(this);" method="POST">
 
                             <!--Grid row-->
@@ -169,8 +168,8 @@
                                 <div class="col-md-12">
 
                                     <div class="md-form">
-                                        <textarea type="text" name="project_request" class="form-control"></textarea>
-                                        <label for="projectsummary">Your message</label>
+                                        <textarea id="project_request" name="project_request" class="form-control"></textarea>
+                                        <label for="project_request">Your message</label>
                                     </div>
 
                                 </div>
@@ -188,8 +187,8 @@
                     <!--Grid column-->
                     <div class="col-md-3 text-center">
                         <ul class="list-unstyled mb-0">
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            <p>Lahinch, Co. Clare, Ireland</p>
+                            <li><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <p>Lahinch, Co. Clare, Ireland</p>
                             </li>
 
                             <li><i class="fa fa-whatsapp" aria-hidden="true"></i>
@@ -227,3 +226,5 @@
     <script src="assets/js/maps.js"></script>
     <script src="assets/js/sendemail.js"></script>
 </body>
+
+</html>
