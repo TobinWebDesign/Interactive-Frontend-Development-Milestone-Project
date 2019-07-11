@@ -1,5 +1,5 @@
 <h1>Interactive Frontend Development Milestone Project</h1>
-Link to website
+<a href="https://tobinwebdesign.github.io/Interactive-Frontend-Development-Milestone-Project/">Link to website</a>
 
 Google Maps API project: I chose to build a platform that allows a user to search for hotels, bars & restaurants, and tourist attractions in the resort town of Lahinch, Co. Clare, Ireland on the Wild Atlantic Way.  
 
@@ -10,6 +10,8 @@ The purpose is for tourists to base themselves in Lahinch and explore Co. Clare 
 The website uses Google Maps API to allow users search locations, choose what they are looking for, and see their options. 
 
 The UX is designed in 3 easy steps. Where to go. What to do. Find out More.
+
+Wireframes
 
 
 <h2>User Stories </h2>

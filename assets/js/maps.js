@@ -44,14 +44,13 @@ function initMap() {
   autocomplete.addListener('place_changed', onPlaceChanged);
 
   // Add a DOM event listener to react when the user selects a radio button
-  document.getElementById('sleepRadio').addEventListener(
-    'change', onPlaceChanged);
-  document.getElementById('eatRadio').addEventListener(
-    'change', onPlaceChanged);
-    document.getElementById('drinkRadio').addEventListener(
-    'change', onPlaceChanged);
-    document.getElementById('seeRadio').addEventListener(
-    'change', onPlaceChanged);
+  var onPlaceChangedListenerIDs = ['sleepRadio', 'eatRadio', 'drinkRadio', 'seeRadio'];
+
+  onPlaceChangedListenerIDs.forEach(function(element) {
+    document.getElementById(element).addEventListener(
+      'change', onPlaceChanged);
+  });
+
 }
 
 
@@ -64,7 +63,7 @@ function onPlaceChanged() {
     if (place.geometry) {
       map.panTo(place.geometry.location);
       map.setZoom(14);
-      search();
+      search(['lodging']);
     }
     else {
       $('#autocomplete').attr("placeholder", "Enter a city");
@@ -75,7 +74,7 @@ function onPlaceChanged() {
     if (place.geometry) {
       map.panTo(place.geometry.location);
       map.setZoom(14);
-      searchEat();
+      search(['cafe', 'restaurant']);
     }
     else {
       $('#autocomplete').attr("placeholder", "Enter a city");
@@ -86,7 +85,7 @@ function onPlaceChanged() {
     if (place.geometry) {
       map.panTo(place.geometry.location);
       map.setZoom(14);
-      searchDrink();
+      search(['bar', 'night_club']);
     }
     else {
       $('#autocomplete').attr("placeholder", "Enter a city");
@@ -97,7 +96,7 @@ function onPlaceChanged() {
     if (place.geometry) {
       map.panTo(place.geometry.location);
       map.setZoom(11);
-      searchSee();
+      search(['natural_feature']);
     }
     else {
       $('#autocomplete').attr("placeholder", "Enter a city");
@@ -106,10 +105,10 @@ function onPlaceChanged() {
 }
 
 // Search for hotels in the selected city, within the viewport of the map.
-function search() {
+function search(types) {
   var search = {
     bounds: map.getBounds(),
-    types: ['lodging']
+    types: types
   };
 
   places.nearbySearch(search, function(results, status) {
@@ -139,103 +138,12 @@ function search() {
 }
 
 // Search for cafes & restaurants in the selected city, within the viewport of the map.
-function searchEat() {
-  var search = {
-    bounds: map.getBounds(),
-    types: ['cafe', 'restaurant']
-  };
 
-  places.nearbySearch(search, function(results, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      clearResults();
-      clearMarkers();
-      // Create a marker for each hotel found, and
-      // assign a letter of the alphabetic to each marker icon.
-      for (var i = 0; i < results.length; i++) {
-        var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-        var markerIcon = MARKER_PATH + markerLetter + '.png';
-        // Use marker animation to drop the icons incrementally on the map.
-        markers[i] = new google.maps.Marker({
-          position: results[i].geometry.location,
-          animation: google.maps.Animation.DROP,
-          icon: markerIcon
-        });
-        // If the user clicks a hotel marker, show the details of that hotel
-        // in an info window.
-        markers[i].placeResult = results[i];
-        google.maps.event.addListener(markers[i], 'click', showInfoWindow);
-        setTimeout(dropMarker(i), i * 100);
-        addResult(results[i], i);
-      }
-    }
-  });
-}
 
 // Search for bar in the selected city, within the viewport of the map.
-function searchDrink() {
-  var search = {
-    bounds: map.getBounds(),
-    types: ['bar', 'night_club']
-  };
 
-  places.nearbySearch(search, function(results, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      clearResults();
-      clearMarkers();
-      // Create a marker for each bar found, and
-      // assign a letter of the alphabetic to each marker icon.
-      for (var i = 0; i < results.length; i++) {
-        var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-        var markerIcon = MARKER_PATH + markerLetter + '.png';
-        // Use marker animation to drop the icons incrementally on the map.
-        markers[i] = new google.maps.Marker({
-          position: results[i].geometry.location,
-          animation: google.maps.Animation.DROP,
-          icon: markerIcon
-        });
-        // If the user clicks a bar marker, show the details of that hotel
-        // in an info window.
-        markers[i].placeResult = results[i];
-        google.maps.event.addListener(markers[i], 'click', showInfoWindow);
-        setTimeout(dropMarker(i), i * 100);
-        addResult(results[i], i);
-      }
-    }
-  });
-}
 
 // Search for bar in the selected city, within the viewport of the map.
-function searchSee() {
-  var search = {
-    bounds: map.getBounds(),
-    types: [ 'natural_feature']
-  };
-
-  places.nearbySearch(search, function(results, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      clearResults();
-      clearMarkers();
-      // Create a marker for each bar found, and
-      // assign a letter of the alphabetic to each marker icon.
-      for (var i = 0; i < results.length; i++) {
-        var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-        var markerIcon = MARKER_PATH + markerLetter + '.png';
-        // Use marker animation to drop the icons incrementally on the map.
-        markers[i] = new google.maps.Marker({
-          position: results[i].geometry.location,
-          animation: google.maps.Animation.DROP,
-          icon: markerIcon
-        });
-        // If the user clicks a bar marker, show the details of that hotel
-        // in an info window.
-        markers[i].placeResult = results[i];
-        google.maps.event.addListener(markers[i], 'click', showInfoWindow);
-        setTimeout(dropMarker(i), i * 100);
-        addResult(results[i], i);
-      }
-    }
-  });
-}
 
 // Reset button
 
@@ -379,4 +287,7 @@ function buildIWContent(place) {
   }
 }
 
-
+// A $( document ).ready() block.
+$(document).ready(function() {
+  initMap()
+});
