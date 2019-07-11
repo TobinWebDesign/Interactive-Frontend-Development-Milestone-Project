@@ -50,7 +50,6 @@ function initMap() {
     document.getElementById(element).addEventListener(
       'change', onPlaceChanged);
   });
-
 }
 
 
