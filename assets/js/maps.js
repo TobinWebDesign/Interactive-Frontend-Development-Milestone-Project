@@ -6,14 +6,20 @@ var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/i
 var hostnameRegexp = new RegExp('^https?://.+?/');
 
 var countries = {
-
-
   'ie': {
     center: { lat: 52.9335, lng: -9.3441 },
-    zoom: 10
+    zoom: 11,
+    search: ['natural_feature']
   },
-
 };
+// Dictionary to store radio button variables to loop through in onPlaceChanged() function
+var searchOptions = {
+    'sleepRadio':{ zoom: 14, search: ['lodgings'] },
+    'eatRadio':{ zoom: 14, search: ['cafe','restaurant'] },
+    'drinkRadio':{ zoom: 14, search: ['bar', 'night_club'] },
+    'seeRadio':{ zoom: 11, search: ['natural_feature'] }
+}
+var radioButtonIDs = ['sleepRadio', 'eatRadio', 'drinkRadio', 'seeRadio'];
 
 function initMap() {
   document.getElementById("seeRadio").checked = true;
@@ -23,84 +29,80 @@ function initMap() {
     mapTypeControl: false,
     panControl: false,
     zoomControl: false,
+    type: ['natural_feature'],
     streetViewControl: false
   });
 
   infoWindow = new google.maps.InfoWindow({
     content: document.getElementById('info-content')
   });
-
+  //document.getElementById('autocomplete').value = "Lahinch, County Clare, Ireland";
   // Create the autocomplete object and associate it with the UI input control.
   // Restrict the search to the default country, and to place type "cities".
-  autocomplete = new google.maps.places.Autocomplete(
+  autocomplete = new google.maps.places.Autocomplete(//SearchBox
     /** @type {!HTMLInputElement} */
     (
       document.getElementById('autocomplete')), {
       types: ['(cities)'],
-      componentRestrictions: countryRestrict
+      componentRestrictions: countryRestrict,
+      //usePreview: false
     });
-  places = new google.maps.places.PlacesService(map);
-
   autocomplete.addListener('place_changed', onPlaceChanged);
+  
+  var request = {
+    //query: 'Lahinch, County Clare, Ireland',
+    //bounds: map.getBounds(),
+    types: ['natural_feature'],
+    location: countries['ie'].center,
+    radius: 10
+  };
 
+  places = new google.maps.places.PlacesService(map);
+  /*
+  places.nearbySearch(request, function(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      createMarkers(results);
+      console.log(results);
+      //for (var i = 0; i < results.length; i++) {
+      //  createMarker(results[i]);
+      //}
+      map.setCenter(results[0].geometry.location);
+     autocomplete.set('place',place);
+    }
+  });*/
   // Add a DOM event listener to react when the user selects a radio button
-  var onPlaceChangedListenerIDs = ['sleepRadio', 'eatRadio', 'drinkRadio', 'seeRadio'];
-
-  onPlaceChangedListenerIDs.forEach(function(element) {
+  radioButtonIDs.forEach(function(element) {
     document.getElementById(element).addEventListener(
       'change', onPlaceChanged);
   });
+  // //This should work but it is not, maybe delay after a second?
+  // google.maps.event.trigger(autocomplete, 'place_changed');
+  // google.maps.event.trigger( autocomplete, 'submit', {} );
+  search(['natural_feature']);
+  onPlaceChanged();
 }
-
 
 
 // When the user selects a city, get the place details for the city and
 // zoom the map in on the city.
 function onPlaceChanged() {
-  if ($("#sleepRadio").is(':checked')) {
-    var place = autocomplete.getPlace();
-    if (place.geometry) {
-      map.panTo(place.geometry.location);
-      map.setZoom(14);
-      search(['lodging']);
+     for(var id of radioButtonIDs){
+        if ($("#"+id).is(':checked')) {             //concatenate the id to the AJAX selector: # + id
+            var place = autocomplete.getPlace();
+            console.log(place);
+            if (place.geometry) {
+            map.panTo(place.geometry.location);
+            map.setZoom(searchOptions[id].zoom);    // Take the zoom variable from the dictionary with the id
+            search(searchOptions[id].search);       // Search keywords from dictionary
+            // Because there can be only one radio button selected
+            // We can break from the loop here
+            break;
+        }
+        else {
+            $('#autocomplete').attr("placeholder", "Enter a city");
+        }
+      }
     }
-    else {
-      $('#autocomplete').attr("placeholder", "Enter a city");
-    }
-  }
-  else if ($("#eatRadio").is(':checked')) {
-    var place = autocomplete.getPlace();
-    if (place.geometry) {
-      map.panTo(place.geometry.location);
-      map.setZoom(14);
-      search(['cafe', 'restaurant']);
-    }
-    else {
-      $('#autocomplete').attr("placeholder", "Enter a city");
-    }
-  }
-  else if ($("#drinkRadio").is(':checked')) {
-    var place = autocomplete.getPlace();
-    if (place.geometry) {
-      map.panTo(place.geometry.location);
-      map.setZoom(14);
-      search(['bar', 'night_club']);
-    }
-    else {
-      $('#autocomplete').attr("placeholder", "Enter a city");
-    }
-  }
-  else if ($("#seeRadio").is(':checked')) {
-    var place = autocomplete.getPlace();
-    if (place.geometry) {
-      map.panTo(place.geometry.location);
-      map.setZoom(11);
-      search(['natural_feature']);
-    }
-    else {
-      $('#autocomplete').attr("placeholder", "Enter a city");
-    }
-  }
 }
 
 // Search for hotels in the selected city, within the viewport of the map.
@@ -114,30 +116,34 @@ function search(types) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       clearResults();
       clearMarkers();
+      createMarkers(results);
       // Create a marker for each hotel found, and
       // assign a letter of the alphabetic to each marker icon.
-      for (var i = 0; i < results.length; i++) {
-        var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
-        var markerIcon = MARKER_PATH + markerLetter + '.png';
-        // Use marker animation to drop the icons incrementally on the map.
-        markers[i] = new google.maps.Marker({
-          position: results[i].geometry.location,
-          animation: google.maps.Animation.DROP,
-          icon: markerIcon
-        });
-        // If the user clicks a hotel marker, show the details of that hotel
-        // in an info window.
-        markers[i].placeResult = results[i];
-        google.maps.event.addListener(markers[i], 'click', showInfoWindow);
-        setTimeout(dropMarker(i), i * 100);
-        addResult(results[i], i);
-      }
-    }
+        }
   });
 }
 
-// Search for cafes & restaurants in the selected city, within the viewport of the map.
-
+// createMarkers fucntion for initMap.
+function createMarkers(results){
+    // Create a marker for each hotel found, and
+    // assign a letter of the alphabetic to each marker icon.
+    for (var i = 0; i < results.length; i++) {
+    var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
+    var markerIcon = MARKER_PATH + markerLetter + '.png';
+    // Use marker animation to drop the icons incrementally on the map.
+    markers[i] = new google.maps.Marker({
+        position: results[i].geometry.location,
+        animation: google.maps.Animation.DROP,
+        icon: markerIcon
+    });
+    // If the user clicks a hotel marker, show the details of that hotel
+    // in an info window.
+    markers[i].placeResult = results[i];
+    google.maps.event.addListener(markers[i], 'click', showInfoWindow);
+    setTimeout(dropMarker(i), i * 100);
+    addResult(results[i], i);
+    }
+}
 
 // Search for bar in the selected city, within the viewport of the map.
 
