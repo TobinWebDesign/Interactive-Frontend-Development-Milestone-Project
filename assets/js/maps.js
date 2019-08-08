@@ -18,7 +18,7 @@ var searchOptions = {
     'eatRadio':{ zoom: 14, search: ['cafe','restaurant'] },
     'drinkRadio':{ zoom: 14, search: ['bar', 'night_club'] },
     'seeRadio':{ zoom: 11, search: ['natural_feature'] }
-}
+};
 var radioButtonIDs = ['sleepRadio', 'eatRadio', 'drinkRadio', 'seeRadio'];
 
 function initMap() {
@@ -294,5 +294,5 @@ function buildIWContent(place) {
 
 // A $( document ).ready() block.
 $(document).ready(function() {
-  initMap()
+  initMap();
 });
