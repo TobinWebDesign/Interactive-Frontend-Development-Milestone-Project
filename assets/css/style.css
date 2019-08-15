@@ -18,6 +18,11 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: #3F6844;
+  text-decoration: none;
+}
+
 .flex-container {
   flex-direction: column;
   display: -webkit-flex;
