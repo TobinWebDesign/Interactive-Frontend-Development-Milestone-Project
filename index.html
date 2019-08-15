@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Oswald:200,300,400,500,600,700&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Oswald:200,300,400,500,600,700&display=swap">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
     <script type="text/javascript">
@@ -47,12 +47,14 @@
                         <input type="radio" name="gender" value="Restaurants/Bars" id="drinkRadio"> <span class="radio-button">DRINK</span>
                     </div>
                 </div>
-                <div class="navbtn">
-                    <button id="reset" type="button" class="btn btn-lg btn-secondary searchbtn" onclick="resetbtn()">Search Again</button>
+                <div class="buttons">
+                    <a href="#map-section">Map</a>
+                    <a href="#form-section">Contact</a>
+                    <div class="navbtn">
+                        <button id="reset" type="button" class="btn btn-lg btn-secondary searchbtn" onclick="resetbtn()">Search Again</button>
+                    </div>
+                    
                 </div>
-
-                <a href="#">Map</a>
-                <a href="#">Contact</a>
             </div>
         </div>
     </header>
@@ -72,7 +74,7 @@
         </div>
     </section>
 
-    <section class="container">
+    <section id="map-section" class="container">
         <!-- Maps Section-->
         <div class="row">
             <div class="col-md-4"></div>
@@ -121,7 +123,7 @@
         </div>
 
     </section>
-    <section class="container">
+    <section id="form-section" class="container">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-8">
