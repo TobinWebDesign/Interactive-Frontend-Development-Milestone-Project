@@ -6,8 +6,8 @@ You can view the website <a href="https://tobinwebdesign.github.io/Interactive-F
 
 Initial Wireframes for the site:
 
-Desktop: <a href="#">Home </a>| 
-Mobile: <a href="#">Home </a>| 
+Desktop: <a href="assets/wireframes/wireframe-desktop.png">Home </a>| 
+Mobile: <a href="assets/wireframes/wireframe-mobile.png">Home </a>| 
 
 <h1>UX</h1>
 
@@ -109,12 +109,17 @@ AWS Cloud 9 was the editor that I used in the coding of the website.
 <h1>Depolyment</h1>
 The website was deployed using Github Pages, you can view it <a href="https://tobinwebdesign.github.io/ucfd-milestone-project/">here</a>.
 <h1>Credits</h1>
+<ul>
+<li>I got the Google Maps Hotels API code from the <a href="https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-hotelsearch" rel="nofollow">Maps Platform</a> website</li>
+<li>I got the Place Types code from the <a href="https://developers.google.com/places/supported_types" rel="nofollow">Place Types</a> page</li>
+</ul>
+
 
 <h2>Media</h2>
 
-The hero photo used in this website is licenced to <a href="https://www.greengrafphotography.com/">Greengraf Photography </a>
+<li>The hero photo used in this website is licenced to <a href="https://www.greengrafphotography.com/">Greengraf Photography </a></li>
 
 <h2>Acknowledgements</h2>
 
-I received inspiration for this project from ...
+<P>My mentor also helped me out with UX improvements, duplicate code issues, and loading lag on Maps API. Design inspiration came from Airbnb, Booking.com and other tourism websites. </P>
 
