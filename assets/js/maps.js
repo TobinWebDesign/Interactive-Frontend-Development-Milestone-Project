@@ -37,16 +37,15 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow({
     content: document.getElementById('info-content')
   });
-  //document.getElementById('autocomplete').value = "Lahinch, County Clare, Ireland";
+  
   // Create the autocomplete object and associate it with the UI input control.
   // Restrict the search to the default country, and to place type "cities".
-  autocomplete = new google.maps.places.Autocomplete(//SearchBox
-    /** @type {!HTMLInputElement} */
+  autocomplete = new google.maps.places.Autocomplete(
     (
       document.getElementById('autocomplete')), {
       types: ['(cities)'],
       componentRestrictions: countryRestrict,
-      //usePreview: false
+     
     });
   autocomplete.addListener('place_changed', function() {
       address = autocomplete.getPlace().geometry.location;
@@ -63,26 +62,14 @@ function initMap() {
   }
   
   var request = {
-    //query: 'Lahinch, County Clare, Ireland',
-    //bounds: map.getBounds(),
+    
     types: ['natural_feature'],
     location: countries['ie'].center,
     radius: 10
   };
 
   places = new google.maps.places.PlacesService(map);
-  /*
-  places.nearbySearch(request, function(results, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      createMarkers(results);
-      console.log(results);
-      //for (var i = 0; i < results.length; i++) {
-      //  createMarker(results[i]);
-      //}
-      map.setCenter(results[0].geometry.location);
-     autocomplete.set('place',place);
-    }
-  });*/
+ 
   // Add a DOM event listener to react when the user selects a radio button
   radioButtonIDs.forEach(function(element) {
     document.getElementById(element).addEventListener(
@@ -109,7 +96,7 @@ function onPlaceChanged(location) {
     }
 }
 
-// Search for hotels in the selected city, within the viewport of the map.
+// Search in the selected city, within the viewport of the map.
 function search(types) {
   var search = {
     bounds: map.getBounds(),
@@ -121,8 +108,6 @@ function search(types) {
       clearResults();
       clearMarkers();
       createMarkers(results);
-      // Create a marker for each hotel found, and
-      // assign a letter of the alphabetic to each marker icon.
         }
   });
 }
@@ -140,7 +125,7 @@ function createMarkers(results){
         animation: google.maps.Animation.DROP,
         icon: markerIcon
     });
-    // If the user clicks a hotel marker, show the details of that hotel
+    // If the user clicks marker, show the details of that marker
     // in an info window.
     markers[i].placeResult = results[i];
     google.maps.event.addListener(markers[i], 'click', showInfoWindow);
@@ -149,10 +134,6 @@ function createMarkers(results){
     }
 }
 
-// Search for bar in the selected city, within the viewport of the map.
-
-
-// Search for bar in the selected city, within the viewport of the map.
 
 // Reset button
 
@@ -259,8 +240,8 @@ function buildIWContent(place) {
     document.getElementById('iw-phone-row').style.display = 'none';
   }
 
-  // Assign a five-star rating to the hotel, using a black star ('&#10029;')
-  // to indicate the rating the hotel has earned, and a white star ('&#10025;')
+  // Assign a five-star rating  using a black star ('&#10029;')
+  // to indicate the rating has earned, and a white star ('&#10025;')
   // for the rating points not achieved.
   if (place.rating) {
     var ratingHtml = '';
@@ -300,5 +281,3 @@ function buildIWContent(place) {
 $(document).ready(function() {
   initMap();
 });
-
-
