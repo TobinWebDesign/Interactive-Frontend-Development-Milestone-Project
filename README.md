@@ -37,7 +37,6 @@ Wireframes
 <li>Full Width, mobile friendly navigation menu - A navigation Menu that will collapse down when the resolution reduces, making a user-friendly experience no matter what device the user is on.</li>
 
 <li>User-friendly online contact form on the website to allow tourist contact to find out more information about the areas.</li>
-<li></li>
 
 <ul>
   <li>Sidebar with Home, How it works, and Map tabs. </li>
@@ -93,9 +92,11 @@ For this section I tested all of the links between the pages, navigation bar and
 All links to which the user is directed to another site opened in a separate browser tab. These links include social site and the third-party ticket purchasing site.
  
 <h2>Issues discovered while testing and how they were rectified.</h2>
-<li>Responsive design </li>
-<li>The Google Maps API had a lag when the page was loading. 
+<li>This site was tested across multiple browsers (Chrome, Microsorft Edge, FireFox) and on multiple mobile devices (iPhone 4, 5, 7, 8, X, iPad, iPad Pro, Galaxy S5, Pixel 2, and Pixel 2XL) to ensure compatibility and responsiveness.  </li>
 <li>For testing the responsive aspect of the website I used a Google Chrome Developer Tools</li>
+<li>During the testing phase there were issues with the responsiveness of the side bar and how it migrated to a header bar in mobile.</li>
+<li>Another responsive dificulty was found in positioning the right pannel results table. Moving from absolute positioning in desktop to reletive positioning in mobile</li>
+<li>The Google Maps API had a lag when the page was loading. This was overcome by adding $( document ).ready() which only runs once the page DOM is ready for JavaScript code to execute</li>
 <li>Validating the code was done with the help of <a href="https://validator.w3.org/nu/#textarea">Nu Html Checker</a> and validating of the CSS was done with the help of <a href="https://jigsaw.w3.org/css-validator/">W3C CSS Validation Service, Jigsaw</a></li>
 <li>I validated my maps.js and sendemail.js with <a href="https://jshint.com/">JSHint</a></li>
 
@@ -107,7 +108,9 @@ AWS Cloud 9 was the editor that I used in the coding of the website.
 
 
 <h1>Depolyment</h1>
-The website was deployed using Github Pages, you can view it <a href="https://tobinwebdesign.github.io/ucfd-milestone-project/">here</a>.
+The website was developed lovally on AWS cloud 9 anddeployed using Github Pages, you can view it <a href="https://tobinwebdesign.github.io/Interactive-Frontend-Development-Milestone-Project/">here</a>.
+<li>To do this I had to create AWS Cloud 9 account
+Create a new GitHub repository and clone is to AWS cloud 9 Next, I committed files to said repository, and finally pushed files up to GitHub.</li>
 <h1>Credits</h1>
 <ul>
 <li>I got the Google Maps Hotels API code from the <a href="https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-hotelsearch" rel="nofollow">Maps Platform</a> website</li>

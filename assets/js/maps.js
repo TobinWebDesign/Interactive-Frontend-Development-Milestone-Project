@@ -22,6 +22,7 @@ var searchOptions = {
 };
 var radioButtonIDs = ['sleepRadio', 'eatRadio', 'drinkRadio', 'seeRadio'];
 
+// Load map of Lahinch
 function initMap() {
   document.getElementById("seeRadio").checked = true;
   map = new google.maps.Map(document.getElementById('map'), {
@@ -53,14 +54,14 @@ function initMap() {
   } );
   
   loadDefaultLocation()
-  
+  // Lahinch Location
   function loadDefaultLocation() {
     address = new google.maps.LatLng(52.9335, -9.3441);
     google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
         onPlaceChanged(address);
     });
   }
-  
+  // See radio button is seleted as default
   var request = {
     
     types: ['natural_feature'],
@@ -135,42 +136,6 @@ function createMarkers(results){
 }
 
 
-// Reset button
-
-function resetbtn() {
-  clearMarkers();
-  clearResults();
-  initMap();
-}
-
-// Empties markers array
-function clearMarkers() {
-  for (var i = 0; i < markers.length; i++) {
-    if (markers[i]) {
-      markers[i].setMap(null);
-    }
-  }
-  markers = [];
-}
-
-// Set the country restriction based on user input.
-// Also center and zoom the map on the given country.
-function setAutocompleteCountry() {
-  var country = document.getElementById('country').value;
-  if (country == 'ie') {
-    autocomplete.setComponentRestrictions({ 'country': [] });
-    map.setCenter({ lat: 52.9335, lng: -9.3441 });
-    map.setZoom(10);
-  }
-  else {
-    autocomplete.setComponentRestrictions({ 'country': country });
-    map.setCenter(countries[country].center);
-    map.setZoom(countries[country].zoom);
-  }
-  clearResults();
-  clearMarkers();
-}
-
 function dropMarker(i) {
   return function() {
     markers[i].setMap(map);
@@ -202,14 +167,9 @@ function addResult(result, i) {
   results.appendChild(tr);
 }
 
-function clearResults() {
-  var results = document.getElementById('results');
-  while (results.childNodes[0]) {
-    results.removeChild(results.childNodes[0]);
-  }
-}
 
-// Get the place details for a hotel. Show the information in an info window,
+
+// Get the place details for marker. Show the information in an info window,
 // anchored on the marker for the hotel that the user selected.
 function showInfoWindow() {
   var marker = this;
@@ -274,6 +234,51 @@ function buildIWContent(place) {
   }
   else {
     document.getElementById('iw-website-row').style.display = 'none';
+  }
+}
+
+
+// Reset button
+
+function resetbtn() {
+  clearMarkers();
+  clearResults();
+  initMap();
+}
+
+// Empties markers array
+function clearMarkers() {
+  for (var i = 0; i < markers.length; i++) {
+    if (markers[i]) {
+      markers[i].setMap(null);
+    }
+  }
+  markers = [];
+}
+
+// Set the country restriction based on user input.
+// Also center and zoom the map on the given country.
+function setAutocompleteCountry() {
+  var country = document.getElementById('country').value;
+  if (country == 'ie') {
+    autocomplete.setComponentRestrictions({ 'country': [] });
+    map.setCenter({ lat: 52.9335, lng: -9.3441 });
+    map.setZoom(10);
+  }
+  else {
+    autocomplete.setComponentRestrictions({ 'country': country });
+    map.setCenter(countries[country].center);
+    map.setZoom(countries[country].zoom);
+  }
+  clearResults();
+  clearMarkers();
+}
+
+
+function clearResults() {
+  var results = document.getElementById('results');
+  while (results.childNodes[0]) {
+    results.removeChild(results.childNodes[0]);
   }
 }
 
