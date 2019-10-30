@@ -1,5 +1,6 @@
 var map, places, infoWindow;
 var markers = [];
+var address;
 var autocomplete;
 var countryRestrict = { 'country': 'ie' };
 var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
@@ -47,7 +48,19 @@ function initMap() {
       componentRestrictions: countryRestrict,
       //usePreview: false
     });
-  autocomplete.addListener('place_changed', onPlaceChanged);
+  autocomplete.addListener('place_changed', function() {
+      address = autocomplete.getPlace().geometry.location;
+      onPlaceChanged(address)
+  } );
+  
+  loadDefaultLocation()
+  
+  function loadDefaultLocation() {
+    address = new google.maps.LatLng(52.9335, -9.3441);
+    google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
+        onPlaceChanged(address);
+    });
+  }
   
   var request = {
     //query: 'Lahinch, County Clare, Ireland',
@@ -73,34 +86,25 @@ function initMap() {
   // Add a DOM event listener to react when the user selects a radio button
   radioButtonIDs.forEach(function(element) {
     document.getElementById(element).addEventListener(
-      'change', onPlaceChanged);
+      'change', function(){
+        onPlaceChanged(address)
+      });
   });
-  // //This should work but it is not, maybe delay after a second?
-  // google.maps.event.trigger(autocomplete, 'place_changed');
-  // google.maps.event.trigger( autocomplete, 'submit', {} );
-  search(['natural_feature']);
-  onPlaceChanged();
+  
 }
 
 
 // When the user selects a city, get the place details for the city and
 // zoom the map in on the city.
-function onPlaceChanged() {
+function onPlaceChanged(location) {
      for(var id of radioButtonIDs){
         if ($("#"+id).is(':checked')) {             //concatenate the id to the AJAX selector: # + id
-            var place = autocomplete.getPlace();
-            console.log(place);
-            if (place.geometry) {
-            map.panTo(place.geometry.location);
+            map.panTo(location);
             map.setZoom(searchOptions[id].zoom);    // Take the zoom variable from the dictionary with the id
             search(searchOptions[id].search);       // Search keywords from dictionary
             // Because there can be only one radio button selected
             // We can break from the loop here
             break;
-        }
-        else {
-            $('#autocomplete').attr("placeholder", "Enter a city");
-        }
       }
     }
 }
@@ -296,3 +300,5 @@ function buildIWContent(place) {
 $(document).ready(function() {
   initMap();
 });
+
+
