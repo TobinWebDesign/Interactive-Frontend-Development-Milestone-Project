@@ -97,11 +97,13 @@ All links to which the user is directed to another site opened in a separate bro
 <li>During the testing phase there were issues with the responsiveness of the side bar and how it migrated to a header bar in mobile.</li>
 <li>Another responsive dificulty was found in positioning the right pannel results table. Moving from absolute positioning in desktop to reletive positioning in mobile</li>
 <li>The Google Maps API had a lag when the page was loading. This was overcome by adding $( document ).ready() which only runs once the page DOM is ready for JavaScript code to execute</li>
+<li>Wen the website first loaded there were no markers until a town name was added to the search box. This was an issue as is made for a poor user experience. The was overcome using the getBounds() function. </li>
 <li>Validating the code was done with the help of <a href="https://validator.w3.org/nu/#textarea">Nu Html Checker</a> and validating of the CSS was done with the help of <a href="https://jigsaw.w3.org/css-validator/">W3C CSS Validation Service, Jigsaw</a></li>
 <li>I validated my maps.js and sendemail.js with <a href="https://jshint.com/">JSHint</a></li>
 
 This website is currently viewable with no deployment issues in:
 <li>Google Chrome</li>
+<li>Microsorft Edge</li>
 <li>Mozilla Firefox</li>
 
 AWS Cloud 9 was the editor that I used in the coding of the website.
@@ -115,6 +117,7 @@ Create a new GitHub repository and clone is to AWS cloud 9 Next, I committed fil
 <ul>
 <li>I got the Google Maps Hotels API code from the <a href="https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-hotelsearch" rel="nofollow">Maps Platform</a> website</li>
 <li>I got the Place Types code from the <a href="https://developers.google.com/places/supported_types" rel="nofollow">Place Types</a> page</li>
+<li>I got the Get Bounds code from the <a href="https://stackoverflow.com/questions/2832636/google-maps-api-v3-getbounds-is-undefined" rel="nofollow">HERE</a></li>
 </ul>
 
 
@@ -124,5 +127,5 @@ Create a new GitHub repository and clone is to AWS cloud 9 Next, I committed fil
 
 <h2>Acknowledgements</h2>
 
-<P>My mentor also helped me out with UX improvements, duplicate code issues, and loading lag on Maps API. Design inspiration came from Airbnb, Booking.com and other tourism websites. </P>
+<P>My mentor Antony Ngene also helped me out with UX improvements, duplicate code issues, loading lag on Maps API. Most importantly Anthony guided me through how to make the markers load when the page loaded.  Design inspiration came from Airbnb, Booking.com and other tourism websites. </P>
 
