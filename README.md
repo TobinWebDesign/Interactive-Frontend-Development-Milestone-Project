@@ -111,8 +111,12 @@ AWS Cloud 9 was the editor that I used in the coding of the website.
 
 <h1>Depolyment</h1>
 The website was developed lovally on AWS cloud 9 anddeployed using Github Pages, you can view it <a href="https://tobinwebdesign.github.io/Interactive-Frontend-Development-Milestone-Project/">here</a>.
-<li>To do this I had to create AWS Cloud 9 account
+<li>To do this I had to create AWS Cloud 9 account.
 Create a new GitHub repository and clone is to AWS cloud 9 Next, I committed files to said repository, and finally pushed files up to GitHub.</li>
+<li>STEP 1: Create Repository </li>
+<li>STEP 2: Push Your Code  </li>
+<li>STEP 3: Go To Settings</li>
+<li>STEP 4: Publish GitHub Page</li>
 <h1>Credits</h1>
 <ul>
 <li>I got the Google Maps Hotels API code from the <a href="https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-hotelsearch" rel="nofollow">Maps Platform</a> website</li>
