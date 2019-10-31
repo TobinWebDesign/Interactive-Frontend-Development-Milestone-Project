@@ -113,10 +113,12 @@ AWS Cloud 9 was the editor that I used in the coding of the website.
 The website was developed lovally on AWS cloud 9 anddeployed using Github Pages, you can view it <a href="https://tobinwebdesign.github.io/Interactive-Frontend-Development-Milestone-Project/">here</a>.
 <li>To do this I had to create AWS Cloud 9 account.
 Create a new GitHub repository and clone is to AWS cloud 9 Next, I committed files to said repository, and finally pushed files up to GitHub.</li>
-<li>STEP 1: Create Repository </li>
-<li>STEP 2: Push Your Code  </li>
-<li>STEP 3: Go To Settings</li>
-<li>STEP 4: Publish GitHub Page</li>
+<li>STEP 1: Create a new GitHub repository and clone is to AWS cloud 9</li>
+<li>STEP 2: Commit files developed in AWS Cloud 9 to said repository </li>
+<li>STEP 3: Push files up to GitHub  </li>
+<li>STEP 4: Click on the settings tab in GitHub</li>
+<li>STEP 5: Scroll down to the GitHub Pages section</li>
+<li>STEP 6: Select master branch and click "SAVE" to publish to GitHub Pages</li>
 <h1>Credits</h1>
 <ul>
 <li>I got the Google Maps Hotels API code from the <a href="https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-hotelsearch" rel="nofollow">Maps Platform</a> website</li>
@@ -131,5 +133,5 @@ Create a new GitHub repository and clone is to AWS cloud 9 Next, I committed fil
 
 <h2>Acknowledgements</h2>
 
-<P>My mentor Antony Ngene also helped me out with UX improvements, duplicate code issues, loading lag on Maps API. Most importantly Anthony guided me through how to make the markers load when the page loaded.  Design inspiration came from Airbnb, Booking.com and other tourism websites. </P>
+<P>My mentor Anthony Ngene also helped me out with UX improvements, duplicate code issues, loading lag on Maps API. Most importantly Anthony guided me through how to make the markers load when the page loaded.  Design inspiration came from Airbnb, Booking.com and other tourism websites. </P>
 
